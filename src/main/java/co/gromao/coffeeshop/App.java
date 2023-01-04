@@ -2,6 +2,7 @@ package co.gromao.coffeeshop;
 
 import co.gromao.coffeeshop.data.dto.ResultDto;
 import co.gromao.coffeeshop.data.entity.Coordinates;
+import co.gromao.coffeeshop.data.repository.LocationsRepository;
 import co.gromao.coffeeshop.service.FindService;
 
 import java.util.List;
@@ -20,7 +21,9 @@ public class App {
 
         final Coordinates userLocation = new Coordinates(latitude, longitude);
 
-        final FindService findService = new FindService();
+        final LocationsRepository locationsRepository = new LocationsRepository();
+        final FindService findService = new FindService(locationsRepository);
+
         final List<ResultDto> nearestShopsResults = findService.getNearestShops(userLocation, maxWalkingDistanceInMetres);
 
         System.out.println("These are the nearest coffee shops to your location " + userLocation + ":\n");

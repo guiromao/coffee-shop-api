@@ -11,12 +11,14 @@ import java.util.List;
 
 public class FindService {
 
-    public FindService() {
-        // general constructor
+    private final LocationsRepository repository;
+
+    public FindService(LocationsRepository locationsRepository) {
+        this.repository = locationsRepository;
     }
 
     public List<ResultDto> getNearestShops(final Coordinates userLocation, final double maximumWalkingDistance) {
-        return LocationsRepository.COFFEE_SHOPS.stream()
+        return repository.findCoffeeShops().stream()
                 .map(shop -> new ResultDto(shop, calculateDistance(shop, userLocation)))
                 .filter(result -> result.getDistanceToUserInMetres() <= maximumWalkingDistance)
                 .sorted(Comparator.comparing(ResultDto::getDistanceToUserInMetres, Comparator.naturalOrder()))

@@ -8,7 +8,7 @@ import java.util.List;
 // Simulating the database
 public class LocationsRepository {
 
-    private LocationsRepository() {
+    public LocationsRepository() {
         // just for returning some data
     }
 
@@ -25,6 +25,10 @@ public class LocationsRepository {
 
     private static CoffeeShop createCoffeeShop(String name, double latitude, double longitude) {
         return new CoffeeShop(name, new Coordinates(latitude, longitude));
+    }
+
+    public List<CoffeeShop> findCoffeeShops() {
+        return COFFEE_SHOPS;
     }
 
 }
