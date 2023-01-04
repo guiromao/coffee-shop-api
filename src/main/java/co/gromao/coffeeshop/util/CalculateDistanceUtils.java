@@ -1,4 +1,4 @@
-package co.gromao.util;
+package co.gromao.coffeeshop.util;
 
 public class CalculateDistanceUtils {
 

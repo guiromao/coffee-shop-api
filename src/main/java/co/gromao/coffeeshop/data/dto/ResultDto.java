@@ -1,7 +1,7 @@
-package co.gromao.data.dto;
+package co.gromao.coffeeshop.data.dto;
 
-import co.gromao.data.entity.CoffeeShop;
-import co.gromao.data.entity.Coordinates;
+import co.gromao.coffeeshop.data.entity.CoffeeShop;
+import co.gromao.coffeeshop.data.entity.Coordinates;
 
 import java.util.Objects;
 

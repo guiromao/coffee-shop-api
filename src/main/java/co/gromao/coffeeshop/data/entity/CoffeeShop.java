@@ -1,4 +1,4 @@
-package co.gromao.data.entity;
+package co.gromao.coffeeshop.data.entity;
 
 import java.util.Objects;
 

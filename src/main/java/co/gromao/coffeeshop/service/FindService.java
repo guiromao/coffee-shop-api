@@ -1,10 +1,10 @@
-package co.gromao.service;
+package co.gromao.coffeeshop.service;
 
-import co.gromao.data.dto.ResultDto;
-import co.gromao.data.entity.CoffeeShop;
-import co.gromao.data.entity.Coordinates;
-import co.gromao.data.repository.LocationsRepository;
-import co.gromao.util.CalculateDistanceUtils;
+import co.gromao.coffeeshop.data.dto.ResultDto;
+import co.gromao.coffeeshop.data.entity.CoffeeShop;
+import co.gromao.coffeeshop.data.entity.Coordinates;
+import co.gromao.coffeeshop.data.repository.LocationsRepository;
+import co.gromao.coffeeshop.util.CalculateDistanceUtils;
 
 import java.util.Comparator;
 import java.util.List;
