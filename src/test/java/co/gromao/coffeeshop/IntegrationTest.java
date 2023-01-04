@@ -21,8 +21,8 @@ class IntegrationTest {
         Assertions.assertEquals(repository.findCoffeeShops().size(), test.size());
 
         for (int i = 0; i < test.size() - 1; i++) {
-            double distance1 = test.get(i).getDistanceToUserInMetres();
-            double distance2 = test.get(i + 1).getDistanceToUserInMetres();
+            double distance1 = test.get(i).getDistanceInMetres();
+            double distance2 = test.get(i + 1).getDistanceInMetres();
 
             Assertions.assertTrue(distance1 <= distance2);
         }

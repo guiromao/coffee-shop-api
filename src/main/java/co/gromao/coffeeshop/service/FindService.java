@@ -9,6 +9,9 @@ import co.gromao.coffeeshop.util.CalculateDistanceUtils;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Class responsible for getting the nearest coffee shops, considering the user's location.
+ */
 public class FindService {
 
     private final LocationsRepository repository;
@@ -20,7 +23,7 @@ public class FindService {
     public List<ResultDto> getNearestShops(final Coordinates userLocation) {
         return repository.findCoffeeShops().stream()
                 .map(shop -> new ResultDto(shop, calculateDistance(shop, userLocation)))
-                .sorted(Comparator.comparing(ResultDto::getDistanceToUserInMetres, Comparator.naturalOrder()))
+                .sorted(Comparator.comparing(ResultDto::getDistanceInMetres, Comparator.naturalOrder()))
                 .toList();
     }
 

@@ -41,7 +41,7 @@ class FindServiceTest {
             ResultDto result1 = test.get(i);
             ResultDto result2 = test.get(i + 1);
 
-            Assertions.assertTrue(result1.getDistanceToUserInMetres() <= result2.getDistanceToUserInMetres());
+            Assertions.assertTrue(result1.getDistanceInMetres() <= result2.getDistanceInMetres());
         }
     }
 

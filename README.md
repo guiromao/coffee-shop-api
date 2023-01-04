@@ -2,6 +2,7 @@
 
 Implementation for providing a list of near coffee shops based on the user location (Coordinate: latitude and longitude). These will also be ordered from 
 nearest to less near.
+The FindService class contains the logic to obtain and sort the coffee shops, according to the obtained location.
 
 Please run the program and:
 1) Input latitude + longitude (two double values separated by a space character)
