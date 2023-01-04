@@ -16,15 +16,12 @@ public class App {
         final double latitude = scanner.nextDouble();
         final double longitude = scanner.nextDouble();
 
-        System.out.println("Input your maximum walking distance, from where you're located (in metres). Example: 4000");
-        final double maxWalkingDistanceInMetres = scanner.nextDouble();
-
         final Coordinates userLocation = new Coordinates(latitude, longitude);
 
         final LocationsRepository locationsRepository = new LocationsRepository();
         final FindService findService = new FindService(locationsRepository);
 
-        final List<ResultDto> nearestShopsResults = findService.getNearestShops(userLocation, maxWalkingDistanceInMetres);
+        final List<ResultDto> nearestShopsResults = findService.getNearestShops(userLocation);
 
         System.out.println("These are the nearest coffee shops to your location " + userLocation + ":\n");
         nearestShopsResults.forEach(shop -> System.out.println(shop.getMessage()));

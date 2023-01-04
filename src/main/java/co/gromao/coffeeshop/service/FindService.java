@@ -17,10 +17,9 @@ public class FindService {
         this.repository = locationsRepository;
     }
 
-    public List<ResultDto> getNearestShops(final Coordinates userLocation, final double maximumWalkingDistance) {
+    public List<ResultDto> getNearestShops(final Coordinates userLocation) {
         return repository.findCoffeeShops().stream()
                 .map(shop -> new ResultDto(shop, calculateDistance(shop, userLocation)))
-                .filter(result -> result.getDistanceToUserInMetres() <= maximumWalkingDistance)
                 .sorted(Comparator.comparing(ResultDto::getDistanceToUserInMetres, Comparator.naturalOrder()))
                 .toList();
     }

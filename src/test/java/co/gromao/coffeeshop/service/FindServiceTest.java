@@ -9,8 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -35,13 +33,16 @@ class FindServiceTest {
 
         when(locationsRepository.findCoffeeShops()).thenReturn(shops);
 
-        final List<ResultDto> test = findService.getNearestShops(userLocation, 1000);
+        final List<ResultDto> test = findService.getNearestShops(userLocation);
 
-        Assertions.assertEquals(2, test.size());
-        Assertions.assertEquals(
-                Set.of("Coffee 1", "Coffee 2"),
-                test.stream().map(ResultDto::getCoffeeShop).map(CoffeeShop::getName).collect(Collectors.toSet())
-        );
+        Assertions.assertEquals(shops.size(), test.size());
+
+        for (int i = 0; i < shops.size() - 1; i++) {
+            ResultDto result1 = test.get(i);
+            ResultDto result2 = test.get(i + 1);
+
+            Assertions.assertTrue(result1.getDistanceToUserInMetres() <= result2.getDistanceToUserInMetres());
+        }
     }
 
     private List<CoffeeShop> coffeeShops() {
