@@ -12,7 +12,7 @@ public class LocationsRepository {
         // just for returning some data
     }
 
-    public static final List<CoffeeShop> COFFEE_SHOPS = List.of(
+    private static final List<CoffeeShop> COFFEE_SHOPS = List.of(
             createCoffeeShop("Blue Lagoon", 0, 0),
             createCoffeeShop("Cinnamon Roll", 0.01, 0.0022),
             createCoffeeShop("Hot Cocoa", 0.034, -0.046),
